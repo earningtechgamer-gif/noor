@@ -7,9 +7,8 @@
     body {
       margin: 0;
       text-align: center;
-      background: #111;
+      background: black;
       color: white;
-      font-family: Arial;
     }
 
     .slideshow {
@@ -18,7 +17,6 @@
       height: 300px;
       margin: auto;
       overflow: hidden;
-      border-radius: 15px;
     }
 
     .slide {
@@ -33,56 +31,28 @@
     .active {
       opacity: 1;
     }
-
-    .controls {
-      margin-top: 15px;
-    }
-
-    button {
-      padding: 10px 15px;
-      margin: 5px;
-      border: none;
-      border-radius: 10px;
-      background: #ff4d6d;
-      color: white;
-      font-size: 18px;
-    }
   </style>
-
 </head>
 
 <body>
 
-<h1>My Slideshow 🎬</h1>
+<h2>Slideshow</h2>
 
 <div class="slideshow">
   <img src="https://raw.githubusercontent.com/earningtechgamer-gif/birthday-gift/726a4ba828df63d0c41d57bcede8bcfd936d48e5/IMG_20260202_045607.jpg" class="slide active">
   <img src="https://raw.githubusercontent.com/earningtechgamer-gif/birthday-gift/726a4ba828df63d0c41d57bcede8bcfd936d48e5/IMG_20260202_045607.jpg" class="slide">
 </div>
 
-<div class="controls">
-  <button onclick="prevSlide()">⬅</button>
-  <button onclick="nextSlide()">➡</button>
-</div>
-
 <script>
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+window.onload = function() {
+  let slides = document.querySelectorAll(".slide");
+  let index = 0;
 
-setInterval(() => {
-  nextSlide();
-}, 3000);
-
-function nextSlide() {
-  slides[index].classList.remove("active");
-  index = (index + 1) % slides.length;
-  slides[index].classList.add("active");
-}
-
-function prevSlide() {
-  slides[index].classList.remove("active");
-  index = (index - 1 + slides.length) % slides.length;
-  slides[index].classList.add("active");
+  setInterval(() => {
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 3000);
 }
 </script>
 
