@@ -1,55 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-  margin: 0;
-  overflow: hidden;
-}
-
-.slideshow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: 1s;
-}
-
-.active {
-  opacity: 1;
-}
-</style>
+    <title>My Music Player</title>
 </head>
 
-<body>
+<body style="background:black; color:white; text-align:center;">
 
-<div class="slideshow">
-  <img src="https://picsum.photos/id/1015/600/300" class="slide active">
-  <img src="https://picsum.photos/id/1016/600/300" class="slide">
-  <img src="https://picsum.photos/id/1018/600/300" class="slide">
-</div>
+    <h1>🎵 My Favorite Song</h1>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  let slides = document.querySelectorAll(".slide");
-  let index = 0;
+    <audio id="song" controls>
+        <source src="https://raw.githubusercontent.com/earningtechgamer-gif/BABU-/main/Ishq%20Ki%20Saazishein%20Ishq%20Ki%20Baaziyaa%20Ringtone%20Download%20-%20MobCup.Com.Co.mp3" type="audio/mp3">
+    </audio>
 
-  setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
-  }, 2000);
-});
-</script>
+    <br><br>
+
+    <button onclick="playSong()">▶ Play</button>
+    <button onclick="pauseSong()">⏸ Pause</button>
+
+    <script>
+        let song = document.getElementById("song");
+
+        function playSong() {
+            song.play();
+        }
+
+        function pauseSong() {
+            song.pause();
+        }
+    </script>
 
 </body>
 </html>
